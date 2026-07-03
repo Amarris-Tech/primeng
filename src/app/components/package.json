@@ -1,16 +1,19 @@
 {
     "name": "primeng",
-    "version": "17.18.15",
+    "version": "17.18.15-amarris.0",
+      "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },    
     "repository": {
         "type": "git",
-        "url": "https://github.com/primefaces/primeng"
+        "url": "https://github.com/Amarris-Tech/primeng.git"
     },
     "keywords": [
         "angular"
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/primefaces/primeng/issues"
+        "url": "https://github.com/Amarris-Tech/primeng.git/issues"
     },
     "exports": {
         "./resources/": "./resources/"
