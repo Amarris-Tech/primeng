@@ -19,11 +19,9 @@ Packages are published to **GitHub Packages** under the scope:
 
 ### 1. Update the package version
 
-Update the version that will be published (for example):
+Update the version that will be published (for example) in src/app/components/package.json:
 
-```text
 17.18.15-amarris.2
-```
 
 ### 2. Commit the changes
 
@@ -81,5 +79,11 @@ Projects consuming this package should contain:
 
 
 The `GITHUB_TOKEN` environment variable must contain a GitHub PAT with permission to read packages.
+
+The GITHUB_TOKEN shoulb be stored in a .env file in the project root (should be in gitignore, and not committed), for example:
+
+```text
+GITHUB_TOKEN=ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+``` 
 
 Add that in a `.npmrc` file in the project root.
