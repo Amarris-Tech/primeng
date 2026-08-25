@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const DIST = path.join(__dirname, '..', 'dist');
+const DIST = path.join(__dirname, '..', 'packages', 'primeng', 'dist');
 
 function walk(dir) {
     for (const file of fs.readdirSync(dir)) {
@@ -29,6 +29,7 @@ const pkg = JSON.parse(fs.readFileSync(path.join(DIST, 'package.json')));
 pkg.name = '@amarris-tech/primeng';
 
 pkg.publishConfig = {
+    ...pkg.publishConfig,
     registry: 'https://npm.pkg.github.com'
 };
 
