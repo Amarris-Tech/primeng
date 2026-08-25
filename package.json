@@ -1,15 +1,15 @@
 {
     "name": "@primeng/monorepo",
-    "version": "18.0.2",
+    "version": "18.0.2-amarris.1",
     "author": "PrimeTek Informatics",
     "homepage": "https://primeng.org/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/primefaces/primeng.git"
+        "url": "https://github.com/Amarris-Tech/primeng.git"
     },
     "license": "SEE LICENSE IN LICENSE.md",
     "bugs": {
-        "url": "https://github.com/primefaces/primeng/issues"
+        "url": "https://github.com/Amarris-Tech/primeng.git/issues"
     },
     "scripts": {
         "setup": "pnpm run clean && pnpm run init",
