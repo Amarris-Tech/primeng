@@ -4,6 +4,7 @@
         "node_modules"
     ],
     "angularCompilerOptions": {
+        "compilationMode": "partial",
         "disableTypeScriptVersionCheck": true,
         "fullTemplateTypeCheck": false,
         "annotateForClosureCompiler": false,
