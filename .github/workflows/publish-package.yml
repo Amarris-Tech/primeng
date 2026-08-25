@@ -21,6 +21,10 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build:lib
+        env:
+          # ng-packagr compiles 80+ entry points in one process; the default V8 heap
+          # is not enough and the build OOMs partway through without this.
+          NODE_OPTIONS: --max-old-space-size=8192
       - run: node scripts/prepare-package.js
       - run: cd packages/primeng/dist && npm publish --registry=https://npm.pkg.github.com
         env:
