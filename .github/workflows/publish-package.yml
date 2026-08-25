@@ -1,0 +1,31 @@
+name: Publish PrimeNG Fork
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          registry-url: https://npm.pkg.github.com
+      - run: pnpm install
+      - run: pnpm run build:lib
+        env:
+          # ng-packagr compiles 80+ entry points in one process; the default V8 heap
+          # is not enough and the build OOMs partway through without this.
+          NODE_OPTIONS: --max-old-space-size=8192
+      - run: node scripts/prepare-package.js
+      - run: cd packages/primeng/dist && npm publish --registry=https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PAT_PUBLISH }}
