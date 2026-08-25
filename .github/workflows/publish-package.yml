@@ -19,7 +19,7 @@ jobs:
           node-version: 20
           cache: 'pnpm'
           registry-url: https://npm.pkg.github.com
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
       - run: pnpm run build:lib
         env:
           # ng-packagr compiles 80+ entry points in one process; the default V8 heap

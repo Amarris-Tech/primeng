@@ -31,7 +31,7 @@ walk(DIST);
 const pkgPath = path.join(DIST, 'package.json');
 const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
 pkg.name = '@amarris-tech/primeng';
-pkg.publishConfig = { registry: 'https://npm.pkg.github.com' };
+pkg.publishConfig = { ...pkg.publishConfig, registry: 'https://npm.pkg.github.com' };
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
 
 console.log('Package prepared.');
