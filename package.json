@@ -9,7 +9,7 @@
     },
     "license": "SEE LICENSE IN LICENSE.md",
     "bugs": {
-        "url": "https://github.com/Amarris-Tech/primeng.git/issues"
+        "url": "https://github.com/Amarris-Tech/primeng/issues"
     },
     "scripts": {
         "setup": "pnpm run clean && pnpm run init",

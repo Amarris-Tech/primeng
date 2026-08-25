@@ -60,10 +60,10 @@ Pushing the tag automatically starts the GitHub Actions workflow defined in
 
 The workflow automatically:
 
-1. Installs dependencies with `pnpm install`.
+1. Installs dependencies with `pnpm install --frozen-lockfile`.
 2. Builds the PrimeNG library with `pnpm run build:lib` (output goes to
    `packages/primeng/dist`).
-3. Runs `node packages/primeng/scripts/prepare-package.js`, which:
+3. Runs `node scripts/prepare-package.js`, which:
    * renames the package from `primeng` to `@amarris-tech/primeng` in
      `packages/primeng/dist/package.json`,
    * rewrites internal cross-entry-point import specifiers (e.g.
@@ -79,7 +79,7 @@ keeps the name `primeng` (not `@amarris-tech/primeng`) so the rest of the
 monorepo's build tooling, which references the bare `primeng` package
 internally (e.g. the showcase app, themes package), keeps working
 unmodified. Only the built output in `dist/` is renamed, by the prepare
-script, right before publishing.
+script (`scripts/prepare-package.js`), right before publishing.
 
 ## Verifying the release
 
